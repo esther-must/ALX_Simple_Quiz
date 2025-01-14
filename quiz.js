@@ -4,19 +4,22 @@ function checkAnswer() {
     const correctAnswer = "4";
 
     // Retrieve the user's answer
-    const userAnswer = document.querySelector('input[name="quiz"]:checked');
+    const userAnswerElement = document.querySelector('input[name="quiz"]:checked');
 
     // Get the feedback element
     const feedback = document.getElementById("feedback");
 
     // Check if the user has selected an answer
-    if (!userAnswer) {
+    if (!userAnswerElement) {
         feedback.textContent = "Please select an answer before submitting.";
         return;
     }
 
+    // Get the user's answer value
+    const userAnswer = userAnswerElement.value;
+
     // Compare the user's answer with the correct answer
-    if (userAnswer.value === correctAnswer) {
+    if (userAnswer === correctAnswer) {
         feedback.textContent = "Correct! Well done.";
     } else {
         feedback.textContent = "That's incorrect. Try again!";
